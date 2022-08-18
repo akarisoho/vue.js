@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>이벤트 전파와 버블링</title>
+   <style>
+      #outer{ width:200px; height: 200px; border: 2px solid #000; background-color: #0ff; position: absolute; left: 100px; top: 100px; padding: 10px;}
+      #inner{ width: 100px; height: 100px; border: 2px solid #000; background-color: yellow;}
+   </style>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="example">
+      <!-- 이벤트 수식어 => @이벤트.수식어 
+         @이벤트.prevent  => 기본이벤트 삭제
+         @이벤트.stop     => 이벤트 전파 방지
+         @이벤트.once     => 한번만 이벤트 실행
+      -->
+      <div id="outer" @click.stop="outerClick">
+         <div id="inner" @click.stop="innerClick"></div>
+      </div>
+   </div>
+   <script>
+      var vm = new Vue({
+         el : "#example",
+         methods : {
+            outerClick : function(e){
+               console.log("### OUTER CLICK");
+               console.log("Event Phase : ", e.eventPhase);
+               console.log("Current Target :", e.currentTarget);
+               console.log("Target :", e.target);
+               // e.stopPropagation();
+            },
+            innerClick : function(e){
+               console.log("### INNER CLICK")
+               console.log("Event Phase : ", e.eventPhase);
+               console.log("Current Target :", e.currentTarget);
+               console.log("Target :", e.target);
+               // e.stopPropagation();
+            }
+         }
+      })
+   </script>
+
+</body>
+</html>

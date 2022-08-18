@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>v-text_v-html</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="sample">
+      <!-- v-text : 문자 그대로를 표현 = .text() -->
+      <h2 v-text="message"></h2>
+      <!-- v-html : 해당 언어의 문법에 맞게 구성해서 나타낸다 = 파싱한다 == .html()
+      script를 그대로 인식하므로 XXS공격 취약하므로 v-text속성이 안전하다.
+      -->
+      <h2 v-html="message"></h2>
+   </div>
+   <script>
+      var model = {
+         message : '<em>Vue.js의 텍스트 바인딩</em>'
+      };
+
+      var sample = new Vue({
+         el : '#sample',
+         data : model
+      })
+   </script>
+</body>
+</html>

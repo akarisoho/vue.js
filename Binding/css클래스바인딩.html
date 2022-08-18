@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CSS클래스바인딩</title>
+   <style>
+      .set1{ background-color: aqua; color: purple;}
+      .set2{ text-align: center; width: 120px;}
+      .set3{ border : 3px dashed orange;}
+   </style>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <!-- div#example > button + p > input:c*3 -->
+   <div id="example">
+      <!--  v-bind:class="{ CSS클래스명 : data 옵션명}
+      class에 있는 css속성이 false가 된 상태 => 스타일이 보이지 않음 -->
+      <button v-bind:class="{set1:s1, set2:s2, set3:s3}">버튼</button>
+      <p>
+         <!-- 체크박스에 체크가 되면 v-model디렉티브로 value값인 true를 data의 각 속성(s1,s2,s3)으로 전달해서 CSS를 보여지게 만듭니다. -->
+         <input type="checkbox" v-model="s1" value="true">set1 디자인<br>
+         <input type="checkbox" v-model="s2" value="true">set2 디자인<br>
+         <input type="checkbox" v-model="s3" value="true">set3 디자인<br>
+      </p>
+   </div>
+   <script>
+      var vm = new Vue({
+         el :'#example',
+         data : { s1 : false, s2 : false, s3 : false }
+      })
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>전역컴포넌트등록</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <script>
+      // 컴포넌트 내용 : template, methods, data 등
+// Vue.component('컴포넌트이름',{컴포넌트에 들어갈 내용})
+      //  전역컴포넌트는 인스턴스를 새로 생성할 때 마다 컴포넌트를 새로 정의할 필요가 없음.
+   </script>
+   <div id="app">
+      <!-- hello-component*3 -->
+      <hello-component></hello-component>
+      <hello-component></hello-component>
+      <hello-component></hello-component>
+   </div>
+   <div id="app2">
+      <hello-component></hello-component>
+      <hello-component></hello-component>
+      <hello-component></hello-component>
+   </div>
+   
+   <script>
+      Vue.component('hello-component',{
+         template : '<div>hellow World!!</div>'    //인라인 템플릿
+      })
+
+      var vm = new Vue({
+         el : '#app'
+      })
+
+      var vm2 = new Vue({
+         el:'#app2'
+      })
+   </script>
+</body>
+</html>

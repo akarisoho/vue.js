@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>라이프사이클</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+      {{message}}
+   </div>
+
+   <script>
+   var life = new Vue({
+      el : '#app',
+      data : {
+         message : 'Hello Vue.js!'
+      },
+      beforeCreate : function(){
+         console.log("beforeCreate");
+      },
+      created : function(){
+         console.log("created");
+      },
+      mounted : function(){
+         console.log("mounted");
+         this.message = 'hello!';
+      },
+      updated : function(){
+         console.log("updated");
+      }
+      
+   })
+</script>
+</body>
+</html>

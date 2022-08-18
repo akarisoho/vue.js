@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>스타일객체바인딩</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="example">
+      <button v-bind:style="[btnColor,btnLayout]">버튼1</button>
+      <button :style="btnLayout">버튼2</button>
+      <button :style="[btnLayout,btnSize]">버튼3</button>
+   </div>
+   <script>
+      var vm = new Vue({
+         el : '#example',
+         data : {
+            btnColor : { backgroundColor:'skyblue', color:'blue'},
+            btnLayout : { width:'100px', height : '70px', textAlign:'center', borderRadius:'10px'},
+            btnSize :{ fontSize : '1.5em'}
+         }
+      })
+   </script>
+</body>
+</html>

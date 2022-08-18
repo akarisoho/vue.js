@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>디렉티브_v-once</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="example">
+      <span v-once>{{message}}</span>
+   </div>
+   <!-- 초기값이 한번 주어지면 변경되지않는 UI만들 때 사용 
+   v-for 반복랜더링을 할 때 콧수염 표현식이 화면에 일시적으로 나타나는 경우에는 v-cloak을 사용 => 초기에 컴파일 되지 않은 템플릿이 나타나지 않음
+   -->  
+ 
+   <script>
+      var vm = new Vue({
+         el : "#example",
+         data : {
+            message : "Hello Vue~"
+         }
+      })
+   </script>
+</body>
+</html>

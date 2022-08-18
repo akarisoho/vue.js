@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>css클래스바인딩_클래스명을데이터속성명으로</title>
+   <style>
+      .set1{ background-color: aqua; color: purple;}
+      .set2{ text-align: center; width: 120px;}
+      .set3{ border : 3px dashed orange;}
+   </style>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="example">
+      <button v-bind:class="myStyle">버튼</button>
+      <p>
+         
+         <input type="checkbox" v-model="myStyle.set1" value="true">set1 디자인<br>
+         <input type="checkbox" v-model="myStyle.set2" value="true">set2 디자인<br>
+         <input type="checkbox" v-model="myStyle.set3" value="true">set3 디자인<br>
+      </p>
+   </div>
+   <script>
+      var vm = new Vue({
+         el :'#example',
+         data : { 
+            myStyle : {    
+            //객체속성명을 style시트에 작성한 클래스명과 동일하게
+               set1 : false, 
+               set2 : false, 
+               set3 : false
+            }
+         }
+      })
+
+   </script>
+</body>
+</html>

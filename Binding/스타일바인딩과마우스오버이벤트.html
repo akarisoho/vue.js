@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>스타일바인딩과마우스오버이벤트</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="example">
+      <button v-bind:style="style1" @mouseover.stop="overEvent" @mouseout.stop="outEvent">테스트</button>
+   </div>
+
+   <script>
+      var vm = new Vue({
+         el : '#example',
+         data : {
+            style1 : { backgroundColor:"skyblue", width:'100px', textAlign:'center', padding:'5px 0', borderRadius:'5px', border:'0'}
+         },
+         methods : {
+            overEvent : function(e){
+               this.style1.backgroundColor = "blue";
+               this.style1.color = "white";
+            },
+            outEvent : function(e){
+               this.style1.backgroundColor = "skyblue";
+               this.style1.color = "black";
+            }
+         }
+      })
+   </script>
+</body>
+</html>

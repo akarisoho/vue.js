@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>props속성을 사용한 데이터 전달</title>
+   <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+   <div id="app">
+<!-- v-bind:props속성값="부모의데이터속성값" 
+ v-bind의 경우에는 생략해서 :props_data="message1" 작성가능하지만, message1의 값이 리터럴(숫자)이라면 문자형으로 끼워넣어짐
+      -->
+      <child-component :props_data="message1"></child-component>
+   </div>
+   <script>
+      Vue.component('child-component',{
+         props:['props_data'],   
+   /* 일반적인 영어식 My message.
+자바스크립트에서는 두 단어 이상의 단어 조합을 표현할때 낙타표기법을 사용 => myMessage
+HTML에선 모든 영어문자를 소문자로 인식 + 두개의 단어이다라고 인식을 하도록 만들어 주는것이 '-' => my-message (케밥표기법)
+구별이 어려우면 전부 소문자로만 작성하거나 '언더스코어표기법 (under_score)'으로 작성합니다.
+      */
+         template : '<p>{{props_data}}</p>'
+      })
+
+      var vm = new Vue({
+         el : '#app',
+         data : {
+            message1 : 'Hello Vue! '
+         }
+      })
+   </script>
+   
+
+</body>
+</html>

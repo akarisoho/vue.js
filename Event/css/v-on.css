@@ -1,0 +1,21 @@
+*{ margin: 0; padding: 0;}
+.container{ width: 90%; max-width: 500px; border: 3px solid #66afe9; margin:  0 auto; border-radius: 20px; padding: 20px; box-sizing: border-box;}
+p{ margin-bottom: 10px;}
+.form-control{ display: block; width: 100%; height: 48px; font-size: 30px; padding: 5px 10px; box-sizing: border-box; color: #66afe9; border:1px solid #ccc; border-radius: 5px; 
+   /* box-shadow: x좌표 y좌표 흐림도 확장 색;
+      text-shadow: x좌표 y좌표 흐림도 확장 색 => 확장값은 IE에서만 구현 됩니다. 
+box-shadow: 0 0 5px #66afe9, 0 0 5px skyblue; => 콤마로 구분해서 그림자를 중첩 적용할 수 있습니다.
+inset 키워드를 속성의 가장 앞이나 끝에 넣으면 내부그림자*/
+box-shadow: 1px 1px 3px #ccc inset, 0 0 0 transparent;
+transition: all 0.25s ease-in-out;
+}
+.form-control:focus{
+   box-shadow: 0 0 0 transparent inset, 0 0 5px #66afe9, 0 0 5px skyblue; outline: 0; border:1px solid #66afe9;}
+
+   button{ background-color: #66afe9; color: #fff; padding: 5px 10px; font-size:25px ; font-weight:600;
+      border : 2px solid #2e6da4; border-radius: 10px; outline: 0; cursor: pointer; }
+   
+   button:hover{ background-color: #2e6da4;}
+
+   h2{ text-align: right;}
+   h2 .balance1{ font-weight: bold; color: #2e6da4;}

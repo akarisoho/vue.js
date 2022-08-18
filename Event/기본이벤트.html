@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>기본이벤트</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <!-- 내장컨텍스트메뉴(우클릭 했을 때 나오는 메뉴)중지 
+      우클릭 메뉴 이벤트 없애기 방법 1
+   <div id="example" v-on:contextmenu="ctxStop"></div>
+      ....                                     
+      new Vue({
+         ..
+          methods : {
+            ctxStop:function(e){
+              e.preventDefault();
+            }
+         ..
+      })
+      ---------------------------------------------------
+      우클릭 메뉴 이벤트 없애기 방법 2 => 
+     <div v-on:contextmenu.prevent="ctxStop"></div>
+      ....
+      new Vue({
+         ..
+          methods : {
+            ctxStop:function(e){
+               //.prevent 접두사가 있으므로 작성안해도 됨
+            }
+         ..
+      }) 
+
+
+
+   -->
+   <div id="example" v-on:contextmenu.prevent="ctxStop">
+      <a href="http://www.naver.com" @click="confirmN">네이버</a>
+   </div>
+
+   <script>
+      var vm = new Vue({
+         el : '#example',
+         methods : {
+            ctxStop:function(e){
+              // e.preventDefault();  기본이벤트 중지
+            },
+            confirmN : function(e){
+               if(!confirm("네이버로 이동할까요?"))
+               //confirm 에서 확인 => true
+                           // 취소 => false
+// if문은 조건문이 true일 때 실행문을 실행 
+// 취소를 누르면 false로 값이 들어와서 !false => true 
+                  e.preventDefault();
+            }
+         }
+      })
+   </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>v-show와 v-if</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+   <style>
+      img{ width: 20px; vertical-align: middle;}
+   </style>
+</head>
+<body>
+   <div id="account">
+      예금액 : <input type="text" v-model="amount">
+      <img v-show="amount < 0" src="../img/error.png" alt="error" title="마이너스는 허용하지 않습니다.">
+      <!-- 
+         화면상으로는 v-if를 사용하거나 v-show를 사용할 경우가 같아 보이지만,
+         <img v-if="조건문">으로 사용할 경우에는 조건에 부합하지 않으면 태그가 랜더링 되지 않습니다.
+         => 개발자도구(F12) > Element탭에서 img요소가 없음
+
+         <img v-show="조건문">으로 사용할 경우에는 조건과 상관없이 화면에는 이미지가 나타나지 않지만 랜더링이 되어있음 => 개발자도구(F12) > Element탭에서 img요소가 있으나 화면에서 이미지 보이지 않음 => 브라우저에서 이 태그를 display :none;으로 처리해 놓기 때문
+
+       -->
+   </div>
+
+   <script>
+      var sample = new Vue({
+         el : '#account',
+         data : {
+            amount : 0
+         }
+      })
+   </script>
+</body>
+</html>

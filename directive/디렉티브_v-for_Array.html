@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>디렉티브_v-for_Array</title>
+   <style>
+      *{margin: 0; padding:0}
+      #list{ width: 600px; border: 1px solid #666; border-collapse: collapse;}
+      #list td, #list th{ border:1px solid #666; text-align: center;}
+      #list>thead>tr{ color: yellow; background-color: purple;}
+   </style>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="example">
+      <table id="list">
+         <thead>
+            <tr>
+               <th>번호</th><th>이름</th>
+               <th>전화번호</th><th>주소</th>
+            </tr>
+         </thead>
+         <tbody id="contents">
+            <tr v-for="(contact, index) in content">
+<!-- {{contact.no}} => 배열의 "no"속성의 값으로 구현됨-->
+               <td>{{index+1}}</td> <!-- 맨 윗줄부터 1 -->
+               <td>{{contact.name}}</td>
+               <td>{{contact.tel}}</td>
+               <td>{{contact.address}}</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <script>
+      var model = {
+         "content" : [
+            {"no":100, "name":"설현","tel":"010-1234-5678","address":"서울"},
+            {"no":99, "name":"지아","tel":"010-4321-9012","address":"서울"},
+            {"no":98, "name":"가희","tel":"010-3412-0123","address":"경기"},
+            {"no":97, "name":"보미","tel":"010-4123-4567","address":"제주"},
+            {"no":96, "name":"나은","tel":"010-1212-7681","address":"서울"},
+            {"no":95, "name":"쯔위","tel":"010-1234-5988","address":"강원"},
+            {"no":94, "name":"사나","tel":"010-1567-5678","address":"부산"},
+            {"no":93, "name":"모모","tel":"010-4564-5990","address":"충남"},
+            {"no":92, "name":"소진","tel":"010-4354-8042","address":"경남"},
+            {"no":91, "name":"하니","tel":"010-4321-5678","address":"경북"},
+            {"no":90, "name":"소지","tel":"010-3215-6789","address":"대전"}
+         ]
+      }
+
+      var list = new Vue({
+         el : "#example",
+         data : model
+      })
+   </script>
+</body>
+</html>

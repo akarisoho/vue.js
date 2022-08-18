@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>디렉티브_v-for_Object</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="example">
+      <select id="region">
+         <option disabled selected>지역 선택</option>
+         <option v-for="(val,key,index) in region" :value="key">
+            <!-- {{key}} : {{val}} -->
+            {{index+1}} : {{val}}
+         </option>
+      </select>
+   </div>
+   <script>
+      var region = {
+      // key : value
+         "A" : "Asia",
+         "B" : "America",
+         "C" : "Europe",
+         "D" : "Africa",
+         "E" : "Oceania"
+      };
+
+      var list = new Vue({
+         el : "#example",
+         data : { region : region}
+      })
+   </script>
+</body>
+</html>

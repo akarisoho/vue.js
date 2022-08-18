@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>v-bind 디렉티브</title>
+   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+   <div id="sample">
+      <input type="text" id="a" v-model="name" placeholder="이름을 입력하세요">
+      <!-- input:radio , select(단일로 선택할수 있는) 폼요소에서  -->
+      <br>
+      입력된 이름 : 
+      <h2 v-html="name"></h2>
+   </div>
+
+   <script>
+      var model = {
+         name : '',
+      }
+
+      var sample = new Vue({
+         el : '#sample',
+         data : model
+      })
+
+   </script>
+</body>
+</html>
